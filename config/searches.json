@@ -1,11 +1,12 @@
-﻿[
+[
   {
-    "name": "Singapore to Tokyo",
+    "name": "Singapore to Kathmandu (one-way, next 30 days)",
     "origin": "SIN",
-    "destination": "NRT",
-    "departure_date": "2027-03-10",
-    "return_date": "2027-03-17",
-    "cabin": "ECONOMY",
-    "adults": 1
+    "destination": "KTM",
+    "cabin": "Y",
+    "adults": 1,
+    "one_way": true,
+    "start_days_from_now": 1,
+    "next_days": 30
   }
 ]
