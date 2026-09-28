@@ -18,7 +18,7 @@ def main() -> None:
     api_key = _require_env("SIA_API_KEY")
 
     searches_path = Path("config/searches.json")
-    searches = json.loads(searches_path.read_text(encoding="utf-8"))
+    searches = json.loads(searches_path.read_text(encoding="utf-8-sig"))
 
     collected_at = datetime.now(timezone.utc).isoformat()
     records = []
@@ -62,3 +62,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
