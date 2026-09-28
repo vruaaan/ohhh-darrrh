@@ -3,7 +3,7 @@
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "7,37 * * * *"
 
 permissions:
   contents: write
@@ -37,4 +37,3 @@ jobs:
           git add data/
           git diff --cached --quiet || git commit -m "Collect SIA prices"
           git push
-
