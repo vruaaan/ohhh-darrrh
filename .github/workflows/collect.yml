@@ -1,0 +1,39 @@
+﻿name: Collect SIA prices
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Collect prices
+        env:
+          SIA_API_BASE_URL: ${{ secrets.SIA_API_BASE_URL }}
+          SIA_API_KEY: ${{ secrets.SIA_API_KEY }}
+        run: python src/collect_prices.py
+
+      - name: Save collected data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Collect SIA prices"
+          git push

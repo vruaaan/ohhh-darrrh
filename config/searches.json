@@ -1,0 +1,11 @@
+﻿[
+  {
+    "name": "Singapore to Tokyo",
+    "origin": "SIN",
+    "destination": "NRT",
+    "departure_date": "2027-03-10",
+    "return_date": "2027-03-17",
+    "cabin": "ECONOMY",
+    "adults": 1
+  }
+]
